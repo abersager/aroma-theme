@@ -86,7 +86,18 @@
 		"terminal.selectionBackground": "#4C566A80",
 		"terminal.border": "#3B4252",
 		"terminalCursor.background": "#D8DEE9",
-		"terminalCursor.foreground": "#D8DEE9"
+		"terminalCursor.foreground": "#D8DEE9",
+
+		// Git decoration colors
+		"gitDecoration.untrackedResourceForeground": "#A3BE8C",
+		"gitDecoration.addedResourceForeground": "#A3BE8C",
+		"gitDecoration.modifiedResourceForeground": "#EBCB8B",
+		"gitDecoration.deletedResourceForeground": "#BF616A",
+		"gitDecoration.renamedResourceForeground": "#EBCB8B",
+		"gitDecoration.stageModifiedResourceForeground": "#8FBCBB",
+		"gitDecoration.stageDeletedResourceForeground": "#BF616A",
+		"gitDecoration.ignoredResourceForeground": "#4C566A",
+		"gitDecoration.conflictingResourceForeground": "#BF616A"
 	},
 	"tokenColors": [
 		{
