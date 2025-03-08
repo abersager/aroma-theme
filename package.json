@@ -19,7 +19,7 @@
       {
         "label": "Aroma",
         "uiTheme": "vs-dark",
-        "path": "./themes/Aroma-color-theme.json"
+        "path": "./vscode/Aroma-color-theme.json"
       }
     ]
   },
