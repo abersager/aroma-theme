@@ -97,9 +97,50 @@
 		"gitDecoration.stageModifiedResourceForeground": "#8FBCBB",
 		"gitDecoration.stageDeletedResourceForeground": "#BF616A",
 		"gitDecoration.ignoredResourceForeground": "#4C566A",
-		"gitDecoration.conflictingResourceForeground": "#BF616A"
+		"gitDecoration.conflictingResourceForeground": "#BF616A",
+
+		// Replace the current bracket colorization settings with these
+		"editorBracketHighlight.foreground1": "#81A1C1CC",  // Blue - more opaque
+		"editorBracketHighlight.foreground2": "#A3BE8CCC",  // Green - more opaque
+		"editorBracketHighlight.foreground3": "#88C0D0CC",  // Cyan - more opaque
+		"editorBracketHighlight.foreground4": "#B48EADCC",  // Purple - more opaque
+		"editorBracketHighlight.foreground5": "#5E81ACCC",  // Darker blue - more opaque
+		"editorBracketHighlight.foreground6": "#EBCB8BCC",  // Yellow - more opaque
+
+		// Disable bracket pair guides
+		"editorBracketPairGuide.background1": "#3B425200",
+		"editorBracketPairGuide.background2": "#3B425200",
+		"editorBracketPairGuide.background3": "#3B425200",
+		"editorBracketPairGuide.background4": "#3B425200",
+		"editorBracketPairGuide.background5": "#3B425200",
+		"editorBracketPairGuide.background6": "#3B425200",
+		"editorBracketPairGuide.activeBackground1": "#3B425200",
+		"editorBracketPairGuide.activeBackground2": "#3B425200",
+		"editorBracketPairGuide.activeBackground3": "#3B425200",
+		"editorBracketPairGuide.activeBackground4": "#3B425200",
+		"editorBracketPairGuide.activeBackground5": "#3B425200",
+		"editorBracketPairGuide.activeBackground6": "#3B425200"
 	},
 	"tokenColors": [
+		{
+			"name": "Brackets and Parentheses",
+			"scope": [
+				"punctuation.definition.block",
+				"punctuation.definition.parameters",
+				"punctuation.definition.array",
+				"punctuation.separator.array",
+				"meta.brace.round",
+				"meta.brace.square",
+				"meta.brace.curly",
+				"meta.delimiter.comma",
+				"meta.brackets",
+				"meta.array.literal",
+				"meta.tag.attributes"
+			],
+			"settings": {
+				"foreground": "#656D78"
+			}
+		},
 		{
 			"name": "Comment",
 			"scope": [
@@ -108,7 +149,7 @@
 			],
 			"settings": {
 				"fontStyle": "italic",
-				"foreground": "#616E88"
+				"foreground": "#6B6B75"
 			}
 		},
 		{
