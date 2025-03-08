@@ -65,7 +65,7 @@
 		"quickInputList.focusForeground": "#88C0D0",
 
 		// Terminal colors
-		"terminal.background": "#1E1E1E",
+		"terminal.background": "#181818",
 		"terminal.foreground": "#D8DEE9",
 		"terminal.ansiBlack": "#3B4252",
 		"terminal.ansiBrightBlack": "#4C566A",
