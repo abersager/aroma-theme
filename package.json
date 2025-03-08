@@ -1,0 +1,29 @@
+{
+  "name": "aroma-theme",
+  "displayName": "Aroma theme",
+  "description": "macOS goes Nord",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "publisher": "abersager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abersager/aroma-theme"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Aroma",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Aroma-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "mkdir -p .build && vsce package --out .build && cursor --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)"
+  }
+}
