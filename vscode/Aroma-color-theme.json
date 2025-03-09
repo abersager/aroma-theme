@@ -100,12 +100,12 @@
 		"gitDecoration.conflictingResourceForeground": "#BF616A",
 
 		// Replace the current bracket colorization settings with these
-		"editorBracketHighlight.foreground1": "#81A1C1CC",  // Blue - more opaque
-		"editorBracketHighlight.foreground2": "#A3BE8CCC",  // Green - more opaque
-		"editorBracketHighlight.foreground3": "#88C0D0CC",  // Cyan - more opaque
-		"editorBracketHighlight.foreground4": "#B48EADCC",  // Purple - more opaque
-		"editorBracketHighlight.foreground5": "#5E81ACCC",  // Darker blue - more opaque
-		"editorBracketHighlight.foreground6": "#EBCB8BCC",  // Yellow - more opaque
+		"editorBracketHighlight.foreground1": "#A2CB7F",  // Green
+		"editorBracketHighlight.foreground2": "#CB77BC",  // Purple
+		"editorBracketHighlight.foreground3": "#88C0D0",  // Cyan
+		"editorBracketHighlight.foreground4": "#367CD4",  // Darker blue
+		"editorBracketHighlight.foreground5": "#C8AE79",  // Yellow
+		"editorBracketHighlight.foreground6": "#66A1DC",  // Blue
 
 		// Disable bracket pair guides
 		"editorBracketPairGuide.background1": "#3B425200",
