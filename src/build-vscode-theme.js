@@ -696,6 +696,6 @@ const theme = {
 };
 
 fs.writeFileSync(
-  path.join(__dirname, "..", "vscode", "Aroma-color-theme.json"),
+  path.join(__dirname, "..", "dist", "vscode", "Aroma-color-theme.json"),
   JSON.stringify(theme, null, 4) + "\n"
 );
