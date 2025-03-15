@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aroma Theme - Color Palette</title>
+  <style>
+    :root {
+      --bg-primary: #181818;
+      --bg-secondary: #222222;
+      --fg-primary: #D8DEE9;
+      --fg-secondary: #ECEFF4;
+      --accent: #5E81AC;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--fg-primary);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--fg-secondary);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .color-swatch {
+      border-radius: 8px;
+      padding: 1rem;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-5px);
+    }
+
+    .color-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .color-value {
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+
+    .color-section {
+      margin-bottom: 3rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--accent);
+      color: var(--fg-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Aroma Theme - Color Palette</h1>
+      <p>A documentation of all colors used in the Aroma theme</p>
+    </header>
+
+    <main>
+      <div class="color-section">
+    <h2>Background Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #181818; color: #FFFFFF;">
+      <div class="color-name">primary</div>
+      <div class="color-value">#181818</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #222222; color: #FFFFFF;">
+      <div class="color-name">secondary</div>
+      <div class="color-value">#222222</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #3B4252; color: #FFFFFF;">
+      <div class="color-name">tertiary</div>
+      <div class="color-value">#3B4252</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #4C566A; color: #FFFFFF;">
+      <div class="color-name">quaternary</div>
+      <div class="color-value">#4C566A</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>Foreground Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #D8DEE9; color: #000000;">
+      <div class="color-name">primary</div>
+      <div class="color-value">#D8DEE9</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #ECEFF4; color: #000000;">
+      <div class="color-name">secondary</div>
+      <div class="color-value">#ECEFF4</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #8C98A7; color: #000000;">
+      <div class="color-name">dimmed</div>
+      <div class="color-value">#8C98A7</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #D8DEE980; color: #000000;">
+      <div class="color-name">muted</div>
+      <div class="color-value">#D8DEE980</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>UI Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #3B4252; color: #FFFFFF;">
+      <div class="color-name">border</div>
+      <div class="color-value">#3B4252</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #383838; color: #FFFFFF;">
+      <div class="color-name">hover</div>
+      <div class="color-value">#383838</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #00000066; color: #FFFFFF;">
+      <div class="color-name">shadow</div>
+      <div class="color-value">#00000066</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #88C0D0; color: #000000;">
+      <div class="color-name">badge</div>
+      <div class="color-value">#88C0D0</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>Syntax Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #6B6B75; color: #FFFFFF;">
+      <div class="color-name">comment</div>
+      <div class="color-value">#6B6B75</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #656D78; color: #FFFFFF;">
+      <div class="color-name">brackets</div>
+      <div class="color-value">#656D78</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #88C0D0; color: #000000;">
+      <div class="color-name">function</div>
+      <div class="color-value">#88C0D0</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #81A1C1; color: #000000;">
+      <div class="color-name">keyword</div>
+      <div class="color-value">#81A1C1</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #A3BE8C; color: #000000;">
+      <div class="color-name">string</div>
+      <div class="color-value">#A3BE8C</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #B48EAD; color: #000000;">
+      <div class="color-name">number</div>
+      <div class="color-value">#B48EAD</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #8FBCBB; color: #000000;">
+      <div class="color-name">class</div>
+      <div class="color-value">#8FBCBB</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #81A1C1; color: #000000;">
+      <div class="color-name">operator</div>
+      <div class="color-value">#81A1C1</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #81A1C1; color: #000000;">
+      <div class="color-name">tag</div>
+      <div class="color-value">#81A1C1</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>Accent Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #5E81AC; color: #FFFFFF;">
+      <div class="color-name">blue.primary</div>
+      <div class="color-value">#5E81AC</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #81A1C1; color: #000000;">
+      <div class="color-name">blue.secondary</div>
+      <div class="color-value">#81A1C1</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #88C0D0; color: #000000;">
+      <div class="color-name">cyan.primary</div>
+      <div class="color-value">#88C0D0</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #8FBCBB; color: #000000;">
+      <div class="color-name">cyan.secondary</div>
+      <div class="color-value">#8FBCBB</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #B48EAD; color: #000000;">
+      <div class="color-name">purple</div>
+      <div class="color-value">#B48EAD</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #A3BE8C; color: #000000;">
+      <div class="color-name">green</div>
+      <div class="color-value">#A3BE8C</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #EBCB8B; color: #000000;">
+      <div class="color-name">yellow</div>
+      <div class="color-value">#EBCB8B</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #BF616A; color: #FFFFFF;">
+      <div class="color-name">red</div>
+      <div class="color-value">#BF616A</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>Terminal Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #E5E9F0; color: #000000;">
+      <div class="color-name">white</div>
+      <div class="color-value">#E5E9F0</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #ECEFF4; color: #000000;">
+      <div class="color-name">brightWhite</div>
+      <div class="color-value">#ECEFF4</div>
+    </div>
+  </div></div>
+      <div class="color-section">
+    <h2>Bracket Colors</h2>
+    <div class="color-grid">
+    <div class="color-swatch" style="background-color: #A2CB7F; color: #000000;">
+      <div class="color-name">green</div>
+      <div class="color-value">#A2CB7F</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #CB77BC; color: #000000;">
+      <div class="color-name">purple</div>
+      <div class="color-value">#CB77BC</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #88C0D0; color: #000000;">
+      <div class="color-name">cyan</div>
+      <div class="color-value">#88C0D0</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #367CD4; color: #FFFFFF;">
+      <div class="color-name">darkBlue</div>
+      <div class="color-value">#367CD4</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #C8AE79; color: #000000;">
+      <div class="color-name">yellow</div>
+      <div class="color-value">#C8AE79</div>
+    </div>
+  
+    <div class="color-swatch" style="background-color: #66A1DC; color: #000000;">
+      <div class="color-name">blue</div>
+      <div class="color-value">#66A1DC</div>
+    </div>
+  </div></div>
+    </main>
+
+    <footer>
+      <p>Generated on 15/03/2025</p>
+    </footer>
+  </div>
+</body>
+</html>

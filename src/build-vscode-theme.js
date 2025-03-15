@@ -6,136 +6,154 @@ const palette = JSON.parse(
   fs.readFileSync(path.join(__dirname, "palette.json"), "utf8")
 );
 
+const getColor = (path) => {
+  return path.split(".").reduce((acc, part) => {
+    if (!acc || !acc[part]) {
+      throw new Error(`Color not found: ${path}`);
+    }
+    return acc[part];
+  }, palette);
+};
+
 // Create the theme structure
 const theme = {
   name: "Aroma",
   colors: {
-    "editor.background": palette.background.primary,
-    "editor.foreground": palette.foreground.primary,
-    "activityBarBadge.background": palette.ui.badge,
-    "activityBarBadge.foreground": palette.background.tertiary,
-    "sideBarTitle.foreground": palette.foreground.primary,
-    "titleBar.activeBackground": palette.background.primary,
-    "titleBar.activeForeground": palette.foreground.primary,
-    "statusBar.background": palette.background.primary,
-    "statusBar.foreground": palette.foreground.primary,
-    "statusBar.noFolderBackground": palette.background.primary,
-    "statusBar.debuggingBackground": palette.accents.blue.primary,
-    "statusBar.debuggingForeground": palette.foreground.secondary,
-    "statusBarItem.hoverBackground": palette.background.secondary,
-    "statusBarItem.activeBackground": palette.ui.hover,
-    "statusBarItem.prominentBackground": palette.background.secondary,
-    "statusBarItem.prominentHoverBackground": palette.ui.hover,
-    "statusBarItem.remoteBackground": palette.background.primary,
-    "statusBarItem.remoteForeground": palette.foreground.primary,
-    "statusBarItem.remoteHoverBackground": palette.background.secondary,
-    "sideBar.background": palette.background.secondary,
-    "sideBar.foreground": palette.foreground.primary,
-    "activityBar.background": palette.background.primary,
-    "activityBar.foreground": palette.foreground.primary,
-    "tab.activeBackground": palette.background.secondary,
-    "tab.inactiveBackground": palette.background.primary,
-    "tab.activeForeground": palette.foreground.primary,
-    "tab.inactiveForeground": palette.foreground.dimmed,
-    "button.background": palette.accents.blue.primary,
-    "button.foreground": palette.foreground.secondary,
-    "button.hoverBackground": palette.accents.blue.secondary,
-    "editorError.foreground": palette.accents.red,
-    "editorWarning.foreground": palette.accents.yellow,
-    "editorInfo.foreground": palette.accents.cyan.primary,
-    "list.activeSelectionBackground": palette.background.tertiary,
-    "list.activeSelectionForeground": palette.accents.cyan.primary,
-    "list.hoverBackground": palette.background.secondary,
-    "list.hoverForeground": palette.foreground.primary,
-    "scrollbarSlider.background": palette.terminal.brightBlack + "80",
-    "scrollbarSlider.hoverBackground": palette.accents.blue.primary + "80",
-    "scrollbarSlider.activeBackground": palette.accents.cyan.primary + "80",
+    "editor.background": getColor("background.primary"),
+    "editor.foreground": getColor("foreground.primary"),
+    "activityBarBadge.background": getColor("ui.badge"),
+    "activityBarBadge.foreground": getColor("background.tertiary"),
+    "sideBarTitle.foreground": getColor("foreground.primary"),
+    "titleBar.activeBackground": getColor("background.primary"),
+    "titleBar.activeForeground": getColor("foreground.primary"),
+    "statusBar.background": getColor("background.primary"),
+    "statusBar.foreground": getColor("foreground.primary"),
+    "statusBar.noFolderBackground": getColor("background.primary"),
+    "statusBar.debuggingBackground": getColor("accents.blue.primary"),
+    "statusBar.debuggingForeground": getColor("foreground.secondary"),
+    "statusBarItem.hoverBackground": getColor("background.secondary"),
+    "statusBarItem.activeBackground": getColor("ui.hover"),
+    "statusBarItem.prominentBackground": getColor("background.secondary"),
+    "statusBarItem.prominentHoverBackground": getColor("ui.hover"),
+    "statusBarItem.remoteBackground": getColor("background.primary"),
+    "statusBarItem.remoteForeground": getColor("foreground.primary"),
+    "statusBarItem.remoteHoverBackground": getColor("background.secondary"),
+    "sideBar.background": getColor("background.secondary"),
+    "sideBar.foreground": getColor("foreground.primary"),
+    "activityBar.background": getColor("background.primary"),
+    "activityBar.foreground": getColor("foreground.primary"),
+    "tab.activeBackground": getColor("background.secondary"),
+    "tab.inactiveBackground": getColor("background.primary"),
+    "tab.activeForeground": getColor("foreground.primary"),
+    "tab.inactiveForeground": getColor("foreground.dimmed"),
+    "button.background": getColor("accents.blue.primary"),
+    "button.foreground": getColor("foreground.secondary"),
+    "button.hoverBackground": getColor("accents.blue.secondary"),
+    "editorError.foreground": getColor("accents.red"),
+    "editorWarning.foreground": getColor("accents.yellow"),
+    "editorInfo.foreground": getColor("accents.cyan.primary"),
+    "list.activeSelectionBackground": getColor("background.tertiary"),
+    "list.activeSelectionForeground": getColor("accents.cyan.primary"),
+    "list.hoverBackground": getColor("background.secondary"),
+    "list.hoverForeground": getColor("foreground.primary"),
+    "scrollbarSlider.background": getColor("background.quaternary") + "80",
+    "scrollbarSlider.hoverBackground": getColor("accents.blue.primary") + "80",
+    "scrollbarSlider.activeBackground": getColor("accents.cyan.primary") + "80",
 
     // Chat-related settings
-    "inlineChat.background": palette.background.secondary,
-    "inlineChat.border": palette.background.tertiary,
-    "inlineChat.shadow": palette.ui.shadow,
-    "inlineChatInput.background": palette.background.primary,
-    "inlineChatInput.border": palette.background.tertiary,
-    "inlineChatInput.placeholderForeground": palette.foreground.muted,
-    "chat.requestBackground": palette.background.primary,
-    "chat.requestBorder": palette.background.tertiary,
-    "chat.slashCommandBackground": palette.background.tertiary,
-    "chat.slashCommandForeground": palette.accents.cyan.primary,
-    "chat.avatarBackground": palette.background.secondary,
-    "chat.avatarForeground": palette.foreground.primary,
-    "input.background": palette.background.primary,
-    "input.border": palette.background.tertiary,
-    "input.foreground": palette.foreground.primary,
-    "input.placeholderForeground": palette.foreground.muted,
-    "quickInput.background": palette.background.secondary,
-    "quickInput.foreground": palette.foreground.primary,
-    "quickInputList.focusBackground": palette.background.tertiary,
-    "quickInputList.focusForeground": palette.accents.cyan.primary,
+    "inlineChat.background": getColor("background.secondary"),
+    "inlineChat.border": getColor("background.tertiary"),
+    "inlineChat.shadow": getColor("ui.shadow"),
+    "inlineChatInput.background": getColor("background.primary"),
+    "inlineChatInput.border": getColor("background.tertiary"),
+    "inlineChatInput.placeholderForeground": getColor("foreground.muted"),
+    "chat.requestBackground": getColor("background.primary"),
+    "chat.requestBorder": getColor("background.tertiary"),
+    "chat.slashCommandBackground": getColor("background.tertiary"),
+    "chat.slashCommandForeground": getColor("accents.cyan.primary"),
+    "chat.avatarBackground": getColor("background.secondary"),
+    "chat.avatarForeground": getColor("foreground.primary"),
+    "input.background": getColor("background.primary"),
+    "input.border": getColor("background.tertiary"),
+    "input.foreground": getColor("foreground.primary"),
+    "input.placeholderForeground": getColor("foreground.muted"),
+    "quickInput.background": getColor("background.secondary"),
+    "quickInput.foreground": getColor("foreground.primary"),
+    "quickInputList.focusBackground": getColor("background.tertiary"),
+    "quickInputList.focusForeground": getColor("accents.cyan.primary"),
 
     // Terminal colors
-    "terminal.background": palette.background.primary,
-    "terminal.foreground": palette.foreground.primary,
-    "terminal.ansiBlack": palette.terminal.black,
-    "terminal.ansiBrightBlack": palette.terminal.brightBlack,
-    "terminal.ansiRed": palette.accents.red,
-    "terminal.ansiBrightRed": palette.accents.red,
-    "terminal.ansiGreen": palette.accents.green,
-    "terminal.ansiBrightGreen": palette.accents.green,
-    "terminal.ansiYellow": palette.accents.yellow,
-    "terminal.ansiBrightYellow": palette.accents.yellow,
-    "terminal.ansiBlue": palette.accents.blue.primary,
-    "terminal.ansiBrightBlue": palette.accents.blue.secondary,
-    "terminal.ansiMagenta": palette.accents.purple,
-    "terminal.ansiBrightMagenta": palette.accents.purple,
-    "terminal.ansiCyan": palette.accents.cyan.primary,
-    "terminal.ansiBrightCyan": palette.accents.cyan.secondary,
-    "terminal.ansiWhite": palette.terminal.white,
-    "terminal.ansiBrightWhite": palette.terminal.brightWhite,
-    "terminal.selectionBackground": palette.terminal.brightBlack + "80",
-    "terminal.border": palette.background.tertiary,
-    "terminalCursor.background": palette.foreground.primary,
-    "terminalCursor.foreground": palette.foreground.primary,
+    "terminal.background": getColor("background.primary"),
+    "terminal.foreground": getColor("foreground.primary"),
+    "terminal.ansiBlack": getColor("background.tertiary"),
+    "terminal.ansiBrightBlack": getColor("background.quaternary"),
+    "terminal.ansiRed": getColor("accents.red"),
+    "terminal.ansiBrightRed": getColor("accents.red"),
+    "terminal.ansiGreen": getColor("accents.green"),
+    "terminal.ansiBrightGreen": getColor("accents.green"),
+    "terminal.ansiYellow": getColor("accents.yellow"),
+    "terminal.ansiBrightYellow": getColor("accents.yellow"),
+    "terminal.ansiBlue": getColor("accents.blue.primary"),
+    "terminal.ansiBrightBlue": getColor("accents.blue.secondary"),
+    "terminal.ansiMagenta": getColor("accents.purple"),
+    "terminal.ansiBrightMagenta": getColor("accents.purple"),
+    "terminal.ansiCyan": getColor("accents.cyan.primary"),
+    "terminal.ansiBrightCyan": getColor("accents.cyan.secondary"),
+    "terminal.ansiWhite": getColor("terminal.white"),
+    "terminal.ansiBrightWhite": getColor("terminal.brightWhite"),
+    "terminal.selectionBackground": getColor("background.quaternary") + "80",
+    "terminal.border": getColor("background.tertiary"),
+    "terminalCursor.background": getColor("foreground.primary"),
+    "terminalCursor.foreground": getColor("foreground.primary"),
 
     // Git decoration colors
-    "gitDecoration.untrackedResourceForeground": palette.accents.green,
-    "gitDecoration.addedResourceForeground": palette.accents.green,
-    "gitDecoration.modifiedResourceForeground": palette.accents.yellow,
-    "gitDecoration.deletedResourceForeground": palette.accents.red,
-    "gitDecoration.renamedResourceForeground": palette.accents.yellow,
-    "gitDecoration.stageModifiedResourceForeground":
-      palette.accents.cyan.secondary,
-    "gitDecoration.stageDeletedResourceForeground": palette.accents.red,
-    "gitDecoration.ignoredResourceForeground": palette.terminal.brightBlack,
-    "gitDecoration.conflictingResourceForeground": palette.accents.red,
+    "gitDecoration.untrackedResourceForeground": getColor("accents.green"),
+    "gitDecoration.addedResourceForeground": getColor("accents.green"),
+    "gitDecoration.modifiedResourceForeground": getColor("accents.yellow"),
+    "gitDecoration.deletedResourceForeground": getColor("accents.red"),
+    "gitDecoration.renamedResourceForeground": getColor("accents.yellow"),
+    "gitDecoration.stageModifiedResourceForeground": getColor(
+      "accents.cyan.secondary"
+    ),
+    "gitDecoration.stageDeletedResourceForeground": getColor("accents.red"),
+    "gitDecoration.ignoredResourceForeground": getColor(
+      "background.quaternary"
+    ),
+    "gitDecoration.conflictingResourceForeground": getColor("accents.red"),
 
     // Bracket colorization
-    "editorBracketHighlight.foreground1": palette.brackets.green,
-    "editorBracketHighlight.foreground2": palette.brackets.purple,
-    "editorBracketHighlight.foreground3": palette.brackets.cyan,
-    "editorBracketHighlight.foreground4": palette.brackets.darkBlue,
-    "editorBracketHighlight.foreground5": palette.brackets.yellow,
-    "editorBracketHighlight.foreground6": palette.brackets.blue,
+    "editorBracketHighlight.foreground1": getColor("brackets.green"),
+    "editorBracketHighlight.foreground2": getColor("brackets.purple"),
+    "editorBracketHighlight.foreground3": getColor("brackets.cyan"),
+    "editorBracketHighlight.foreground4": getColor("brackets.darkBlue"),
+    "editorBracketHighlight.foreground5": getColor("brackets.yellow"),
+    "editorBracketHighlight.foreground6": getColor("brackets.blue"),
 
     // Disable bracket pair guides
-    "editorBracketPairGuide.background1": palette.background.tertiary + "00",
-    "editorBracketPairGuide.background2": palette.background.tertiary + "00",
-    "editorBracketPairGuide.background3": palette.background.tertiary + "00",
-    "editorBracketPairGuide.background4": palette.background.tertiary + "00",
-    "editorBracketPairGuide.background5": palette.background.tertiary + "00",
-    "editorBracketPairGuide.background6": palette.background.tertiary + "00",
+    "editorBracketPairGuide.background1":
+      getColor("background.tertiary") + "00",
+    "editorBracketPairGuide.background2":
+      getColor("background.tertiary") + "00",
+    "editorBracketPairGuide.background3":
+      getColor("background.tertiary") + "00",
+    "editorBracketPairGuide.background4":
+      getColor("background.tertiary") + "00",
+    "editorBracketPairGuide.background5":
+      getColor("background.tertiary") + "00",
+    "editorBracketPairGuide.background6":
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground1":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground2":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground3":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground4":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground5":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
     "editorBracketPairGuide.activeBackground6":
-      palette.background.tertiary + "00",
+      getColor("background.tertiary") + "00",
   },
   tokenColors: [
     {
@@ -154,42 +172,42 @@ const theme = {
         "meta.tag.attributes",
       ],
       settings: {
-        foreground: palette.syntax.brackets,
+        foreground: getColor("syntax.brackets"),
       },
     },
     {
       name: "Comment",
       scope: ["comment", "punctuation.definition.comment"],
       settings: {
-        foreground: palette.syntax.comment,
+        foreground: getColor("syntax.comment"),
       },
     },
     {
       name: "Variables",
       scope: ["variable", "string constant.other.placeholder"],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
       name: "Colors",
       scope: ["constant.other.color"],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
       name: "Invalid",
       scope: ["invalid", "invalid.illegal"],
       settings: {
-        foreground: palette.accents.red,
+        foreground: getColor("accents.red"),
       },
     },
     {
       name: "Keyword, Storage",
       scope: ["keyword", "storage.type", "storage.modifier"],
       settings: {
-        foreground: palette.syntax.keyword,
+        foreground: getColor("syntax.keyword"),
       },
     },
     {
@@ -209,14 +227,14 @@ const theme = {
         "keyword.other.substitution",
       ],
       settings: {
-        foreground: palette.syntax.operator,
+        foreground: getColor("syntax.operator"),
       },
     },
     {
       name: "Tag",
       scope: ["entity.name.tag", "meta.tag.sgml", "markup.deleted.git_gutter"],
       settings: {
-        foreground: palette.syntax.tag,
+        foreground: getColor("syntax.tag"),
       },
     },
     {
@@ -229,21 +247,21 @@ const theme = {
         "keyword.other.special-method",
       ],
       settings: {
-        foreground: palette.syntax.function,
+        foreground: getColor("syntax.function"),
       },
     },
     {
       name: "Block Level Variables",
       scope: ["meta.block variable.other"],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
       name: "Other Variable, String Link",
       scope: ["support.other.variable", "string.other.link"],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
@@ -259,7 +277,7 @@ const theme = {
         "keyword.other",
       ],
       settings: {
-        foreground: palette.accents.purple,
+        foreground: getColor("accents.purple"),
       },
     },
     {
@@ -274,7 +292,7 @@ const theme = {
         "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
       ],
       settings: {
-        foreground: palette.accents.green,
+        foreground: getColor("accents.green"),
       },
     },
     {
@@ -290,14 +308,14 @@ const theme = {
         "support.type.sys-types",
       ],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
       name: "Entity Types",
       scope: ["support.type"],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
@@ -311,7 +329,7 @@ const theme = {
         "source.postcss support.type.property-name",
       ],
       settings: {
-        foreground: palette.accents.purple,
+        foreground: getColor("accents.purple"),
       },
     },
     {
@@ -322,7 +340,7 @@ const theme = {
         "variable.other.class.js",
       ],
       settings: {
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
@@ -330,7 +348,7 @@ const theme = {
       scope: ["variable.language"],
       settings: {
         fontStyle: "italic",
-        foreground: palette.accents.blue.primary,
+        foreground: getColor("accents.blue.primary"),
       },
     },
     {
@@ -338,7 +356,7 @@ const theme = {
       scope: ["entity.name.method.js"],
       settings: {
         fontStyle: "italic",
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
@@ -348,14 +366,14 @@ const theme = {
         "variable.function.constructor",
       ],
       settings: {
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
       name: "Attributes",
       scope: ["entity.other.attribute-name"],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
@@ -366,56 +384,56 @@ const theme = {
       ],
       settings: {
         fontStyle: "italic",
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
       name: "CSS Classes",
       scope: ["entity.other.attribute-name.class"],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
       name: "CSS ID's",
       scope: ["source.sass keyword.control"],
       settings: {
-        foreground: palette.accents.blue.primary,
+        foreground: getColor("accents.blue.primary"),
       },
     },
     {
       name: "Inserted",
       scope: ["markup.inserted"],
       settings: {
-        foreground: palette.accents.green,
+        foreground: getColor("accents.green"),
       },
     },
     {
       name: "Deleted",
       scope: ["markup.deleted"],
       settings: {
-        foreground: palette.accents.red,
+        foreground: getColor("accents.red"),
       },
     },
     {
       name: "Changed",
       scope: ["markup.changed"],
       settings: {
-        foreground: palette.accents.yellow,
+        foreground: getColor("accents.yellow"),
       },
     },
     {
       name: "Regular Expressions",
       scope: ["string.regexp"],
       settings: {
-        foreground: palette.accents.yellow,
+        foreground: getColor("accents.yellow"),
       },
     },
     {
       name: "Escape Characters",
       scope: ["constant.character.escape"],
       settings: {
-        foreground: palette.accents.yellow,
+        foreground: getColor("accents.yellow"),
       },
     },
     {
@@ -433,7 +451,7 @@ const theme = {
       ],
       settings: {
         fontStyle: "italic",
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
@@ -443,7 +461,7 @@ const theme = {
       ],
       settings: {
         fontStyle: "italic",
-        foreground: palette.accents.purple,
+        foreground: getColor("accents.purple"),
       },
     },
     {
@@ -452,7 +470,7 @@ const theme = {
         "source.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.blue.secondary,
+        foreground: getColor("accents.blue.secondary"),
       },
     },
     {
@@ -461,7 +479,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
@@ -470,7 +488,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
@@ -479,7 +497,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.blue.primary,
+        foreground: getColor("accents.blue.primary"),
       },
     },
     {
@@ -488,7 +506,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.purple,
+        foreground: getColor("accents.purple"),
       },
     },
     {
@@ -497,7 +515,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.yellow,
+        foreground: getColor("accents.yellow"),
       },
     },
     {
@@ -506,7 +524,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.green,
+        foreground: getColor("accents.green"),
       },
     },
     {
@@ -515,7 +533,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.blue.secondary,
+        foreground: getColor("accents.blue.secondary"),
       },
     },
     {
@@ -524,7 +542,7 @@ const theme = {
         "source.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json support.type.property-name.json",
       ],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
@@ -534,14 +552,14 @@ const theme = {
         "punctuation.definition.list_item.markdown",
       ],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
       name: "Markdown - Markup Raw Inline",
       scope: ["text.html.markdown markup.inline.raw.markdown"],
       settings: {
-        foreground: palette.accents.blue.secondary,
+        foreground: getColor("accents.blue.secondary"),
       },
     },
     {
@@ -550,7 +568,7 @@ const theme = {
         "text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown",
       ],
       settings: {
-        foreground: palette.terminal.brightBlack,
+        foreground: getColor("background.quaternary"),
       },
     },
     {
@@ -561,7 +579,7 @@ const theme = {
         "markup.heading.markdown punctuation.definition.heading.markdown",
       ],
       settings: {
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
@@ -569,7 +587,7 @@ const theme = {
       scope: ["markup.italic"],
       settings: {
         fontStyle: "italic",
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
@@ -577,7 +595,7 @@ const theme = {
       scope: ["markup.bold", "markup.bold string"],
       settings: {
         fontStyle: "bold",
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
@@ -592,7 +610,7 @@ const theme = {
       ],
       settings: {
         fontStyle: "bold italic",
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
@@ -600,14 +618,14 @@ const theme = {
       scope: ["markup.underline"],
       settings: {
         fontStyle: "underline",
-        foreground: palette.accents.purple,
+        foreground: getColor("accents.purple"),
       },
     },
     {
       name: "Markdown - Blockquote",
       scope: ["markup.quote punctuation.definition.blockquote.markdown"],
       settings: {
-        foreground: palette.terminal.brightBlack,
+        foreground: getColor("background.quaternary"),
       },
     },
     {
@@ -621,42 +639,42 @@ const theme = {
       name: "Markdown - Link",
       scope: ["string.other.link.title.markdown"],
       settings: {
-        foreground: palette.accents.cyan.primary,
+        foreground: getColor("accents.cyan.primary"),
       },
     },
     {
       name: "Markdown - Link Description",
       scope: ["string.other.link.description.title.markdown"],
       settings: {
-        foreground: palette.accents.blue.secondary,
+        foreground: getColor("accents.blue.secondary"),
       },
     },
     {
       name: "Markdown - Link Anchor",
       scope: ["constant.other.reference.link.markdown"],
       settings: {
-        foreground: palette.accents.cyan.secondary,
+        foreground: getColor("accents.cyan.secondary"),
       },
     },
     {
       name: "Markup - Raw Block",
       scope: ["markup.raw.block"],
       settings: {
-        foreground: palette.accents.blue.secondary,
+        foreground: getColor("accents.blue.secondary"),
       },
     },
     {
       name: "Markdown - Raw Block Fenced",
       scope: ["markup.raw.block.fenced.markdown"],
       settings: {
-        foreground: palette.terminal.brightBlack,
+        foreground: getColor("background.quaternary"),
       },
     },
     {
       name: "Markdown - Fenced Bode Block",
       scope: ["punctuation.definition.fenced.markdown"],
       settings: {
-        foreground: palette.terminal.brightBlack,
+        foreground: getColor("background.quaternary"),
       },
     },
     {
@@ -667,14 +685,14 @@ const theme = {
         "punctuation.section.class.end",
       ],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
     {
       name: "Markdown - Fenced Language",
       scope: ["variable.language.fenced.markdown"],
       settings: {
-        foreground: palette.accents.blue.primary,
+        foreground: getColor("accents.blue.primary"),
       },
     },
     {
@@ -682,14 +700,14 @@ const theme = {
       scope: ["meta.separator"],
       settings: {
         fontStyle: "bold",
-        foreground: palette.accents.blue.primary,
+        foreground: getColor("accents.blue.primary"),
       },
     },
     {
       name: "Markup - Table",
       scope: ["markup.table"],
       settings: {
-        foreground: palette.foreground.primary,
+        foreground: getColor("foreground.primary"),
       },
     },
   ],

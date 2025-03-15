@@ -2,7 +2,8 @@
   "background": {
     "primary": "#181818",
     "secondary": "#222222",
-    "tertiary": "#3B4252"
+    "tertiary": "#3B4252",
+    "quaternary": "#4C566A"
   },
   "foreground": {
     "primary": "#D8DEE9",
@@ -42,8 +43,6 @@
     "red": "#BF616A"
   },
   "terminal": {
-    "black": "#3B4252",
-    "brightBlack": "#4C566A",
     "white": "#E5E9F0",
     "brightWhite": "#ECEFF4"
   },

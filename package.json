@@ -20,12 +20,15 @@
       {
         "label": "Aroma",
         "uiTheme": "vs-dark",
-        "path": "./vscode/Aroma-color-theme.json"
+        "path": "./dist/vscode/Aroma-color-theme.json"
       }
     ]
   },
   "scripts": {
-    "build": "mkdir -p .build && vsce package --out .build && cursor --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)"
+    "build": "mkdir -p .build && npm run build:vscode && npm run build:docs && npm run build:iterm",
+    "build:docs": "node src/build-docs.js",
+    "build:iterm": "node src/build-iterm-theme.js",
+    "build:vscode": "node src/build-vscode-theme.js && vsce package --out .build && cursor --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)"
   },
   "galleryBanner": {
     "color": "#181818",
