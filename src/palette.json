@@ -34,12 +34,12 @@
       "secondary": "#81A1C1"
     },
     "cyan": {
-      "primary": "#88C0D0",
-      "secondary": "#8FBCBB"
+      "primary": "#86B9C7",
+      "secondary": "#75B3AC"
     },
-    "purple": "#B48EAD",
     "green": "#A3BE8C",
-    "yellow": "#EBCB8B",
+    "yellow": "#E4BE92",
+    "purple": "#C98BAD",
     "red": "#BF616A"
   },
   "terminal": {
