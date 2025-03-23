@@ -746,6 +746,15 @@
             "settings": {
                 "foreground": "#D8DEE9"
             }
+        },
+        {
+            "name": "JS Array Literals",
+            "scope": [
+                "meta.array.literal"
+            ],
+            "settings": {
+                "foreground": "#8C98A7"
+            }
         }
     ]
 }

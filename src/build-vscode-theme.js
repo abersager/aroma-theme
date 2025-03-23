@@ -710,6 +710,13 @@ const theme = {
         foreground: getColor("foreground.primary"),
       },
     },
+    {
+      name: "JS Array Literals",
+      scope: ["meta.array.literal"],
+      settings: {
+        foreground: getColor("foreground.dimmed"),
+      },
+    },
   ],
 };
 
