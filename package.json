@@ -1,8 +1,8 @@
 {
   "name": "aroma-theme",
   "displayName": "Aroma theme",
-  "description": "macOS goes Nord",
-  "version": "0.0.2",
+  "description": "macOS goes Nord. Dark theme for VS Code and iTerm2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -28,7 +28,9 @@
     "build": "mkdir -p .build && npm run build:vscode && npm run build:docs && npm run build:iterm",
     "build:docs": "node src/build-docs.js",
     "build:iterm": "node src/build-iterm-theme.js",
-    "build:vscode": "node src/build-vscode-theme.js && vsce package --out .build && cursor --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)"
+    "build:vscode": "node src/build-vscode-theme.js && vsce package --out .build",
+    "install:cursor": "cursor --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)",
+    "install:vscode": "code --install-extension $(find .build -type f -name \"*.vsix\" -print | sort -r | head -n 1)"
   },
   "galleryBanner": {
     "color": "#181818",
